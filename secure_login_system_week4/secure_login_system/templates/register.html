@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Register - Secure Login{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Create Account</h1>
+    <form method="post" autocomplete="off">
+        <label>Username</label>
+        <input type="text" name="username" minlength="3" maxlength="30" required>
+
+        <label>Email</label>
+        <input type="email" name="email" maxlength="254" required>
+
+        <label>Password</label>
+        <input type="password" name="password" minlength="8" maxlength="128" required>
+
+        <label>Confirm Password</label>
+        <input type="password" name="confirm_password" minlength="8" maxlength="128" required>
+
+        <button type="submit" class="button">Register</button>
+    </form>
+
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+</div>
+{% endblock %}
