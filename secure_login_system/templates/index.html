@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Home - Secure Login{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Secure Login System</h1>
+    <p>A Flask-based authentication application using bcrypt password hashing, validation, parameterized SQL, and secure sessions.</p>
+
+    {% if session.get('user_id') %}
+        <a class="button" href="{{ url_for('dashboard') }}">Open Dashboard</a>
+    {% else %}
+        <a class="button" href="{{ url_for('register') }}">Create Account</a>
+        <a class="button secondary" href="{{ url_for('login') }}">Login</a>
+    {% endif %}
+</section>
+
+<section class="features">
+    <div><h3>bcrypt</h3><p>Passwords are stored as secure hashes.</p></div>
+    <div><h3>Validation</h3><p>User input is checked on the server.</p></div>
+    <div><h3>SQL Safety</h3><p>Parameterized queries help prevent SQL injection.</p></div>
+    <div><h3>Sessions</h3><p>Authenticated users access protected pages.</p></div>
+</section>
+{% endblock %}
